@@ -2,9 +2,23 @@ function refreshWeather(response) {
     let temperatureElement = document.querySelector("#temperature");
     let temperature = response.data.temperature.current;
     let cityElement = document.querySelector("#city");
+    let descriptionElement = document.querySelector("#description");
+    let humidityElement = document.querySelector("#humidity");
+    let windSpeedElement = document.querySelector("#wind-speed");
+    let timeElement = document.querySelector("#time");
+
+   console.log(response.data.conditon);
 
 
-    cityElement.innerHTML =response.data.city;
+   cityElement.innerHTML = response.data.city;
+  timeElement.innerHTML= "Tuesday 14:49";
+  descriptionElement.innerHTML = response.data.conditon.description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+  temperatureElement.innerHTML = Math.round(temperature); 
+
+
+    
     temperatureElement.innerHTML = Math.round(temperature);
 }
 
@@ -22,10 +36,10 @@ function handleSearchSubmit(event) {
 event.preventDefault();
 let searchInput = document.querySelector("#search-form-input");
 
-searchCity(searchInput.value)
+searchCity(searchInput.value);
 }
 
 let searchformElement = document.querySelector("#search-form");
 searchformElement.addEventListener("submit",handleSearchSubmit);
 
-searchCity(Paris)
+searchCity("Paris");
