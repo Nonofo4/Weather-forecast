@@ -11,7 +11,7 @@ function refreshWeather(response) {
 
 
    cityElement.innerHTML = response.data.city;
-  timeElement.innerHTML= "Tuesday 14:49";
+  timeElement.innerHTML= formatDate(date);
   descriptionElement.innerHTML = response.data.conditon.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
